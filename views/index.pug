@@ -20,3 +20,7 @@ block content
     .entry 
       input.form-control(type="text", name="cMessage" id="cMessage")
       button.mybtn#sendMessage(type="submit") Send
+
+block footer
+  script(src="/socket.io/socket.io.js") 
+  script(src="/javascripts/client.js") 
