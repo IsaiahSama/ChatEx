@@ -5,3 +5,13 @@ socket.emit("handshake", "connecting to server");
 socket.on("connect", (...args) => {
   console.log("Connected to server");
 });
+
+document.getElementById("sendMessage").onclick = () => {
+  const messageField = document.getElementById("cMessage");
+  const data = messageField.value;
+
+  // clearing the message field
+  messageField.value = "";
+
+  console.log(data);
+};
