@@ -4,17 +4,22 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
+const os = require("os");
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const cors = require("cors");
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-};
+const corsOptions = {};
+
+const host = "0.0.0.0";
+const port = 3000;
 
 const app = express();
-const PORT = 5000;
+
+// Sockets!
+const HTTPPORT = 5000;
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, {
   cors: corsOptions,
@@ -51,9 +56,19 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+app.listen(port, host, async () => {
+  const networkInterfaces = os.networkInterfaces();
+  const ipv4Interfaces = networkInterfaces["Wi-Fi"].filter(
+    (interface) => interface.family === "IPv4"
+  );
+  const localIp = ipv4Interfaces[0].address;
+
+  console.log(`Server listening on http://${localIp}:${port}`);
+});
+
 // Server Stuff
-http.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+http.listen(HTTPPORT, () => {
+  console.log(`Listening on port ${HTTPPORT}`);
 });
 
 let clients = []; // This will store all connected clients
