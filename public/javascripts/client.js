@@ -13,5 +13,5 @@ document.getElementById("sendMessage").onclick = () => {
   // clearing the message field
   messageField.value = "";
 
-  console.log(data);
+  socket.emit("message", data);
 };

@@ -60,6 +60,9 @@ io.on("connection", (socket) => {
   console.log("Connection with socket established");
 
   // Listeners can go here!
+  socket.on("message", (message) => {
+    console.log("Received message: ", message);
+  });
 });
 
 module.exports = app;
