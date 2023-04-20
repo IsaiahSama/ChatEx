@@ -78,6 +78,7 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     clients = clients.filter((value) => value != socket);
+    updateOnlineCount();
     console.log("Client has disconnected!");
   });
 });
