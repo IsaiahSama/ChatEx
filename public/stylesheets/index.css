@@ -79,3 +79,9 @@
   background-color: rgb(220, 220, 252);
   margin-right: 0;
 }
+
+/* Counting */
+.watching {
+  text-align: center;
+  font-size: large;
+}

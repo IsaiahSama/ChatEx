@@ -10,12 +10,9 @@ block content
 
   .content
     .messages#messagesDiv 
-      .message.client
-        .sender Some Client
-        .messageContent Message sent from other client
-      .message.user
-        .sender Current User
-        .messageContent Message sent by the current user.
+      .watching 
+        p Online users: 
+          span#users 
 
     .entry 
       input.form-control(type="text", name="cMessage" id="cMessage")
