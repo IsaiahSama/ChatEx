@@ -53,7 +53,6 @@
   padding: 0.8em;
   border-radius: 5px;
   box-shadow: 6px 6px 1px 1px rgba(0, 0, 0, 0.3);
-  font-size: small;
   color: #333;
   width: fit-content;
   max-width: 80%;
@@ -63,7 +62,8 @@
 }
 
 .sender {
-  font-size: small;
+  font-size: smaller;
+  font-weight: bold;
 }
 
 .messageContent {
