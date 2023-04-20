@@ -8,13 +8,12 @@ block content
     h1 Welcome to ChatEx
     p Just a place to join a chatroom and talk with whoever. No conversations are stored, so chat away.
 
-  .messageContainer
-    .messageWindow
-      #messages
-        .messageDiv
-          .senderName Name of Sender
-          .messageContent Insert some cool content here 
+  .content
+    .messages#messageDiv 
+      .message
+        .sender Name of Sender
+        .messageContent Insert some cool content here 
 
-    .inputSection 
-      input.form-control(type="text", name="message" id="message")
-      button.btn(type="submit") Send
+    .entry 
+      input.form-control(type="text", name="cMessage" id="cMessage")
+      button.mybtn(type="submit") Send

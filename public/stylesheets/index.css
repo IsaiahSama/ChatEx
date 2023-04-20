@@ -1,5 +1,63 @@
-.messageContainer {
-  width: 70%;
+.content {
   max-width: 70%;
-  border: 1px solid blue;
+  width: 70%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.messages {
+  margin-bottom: 4em;
+  background-color: #f9f9f9;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.1);
+  height: 70vh;
+  word-wrap: normal;
+  overflow-y: scroll;
+}
+
+.entry {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-control {
+  flex: 1;
+  padding: 0.3em;
+  border-radius: 5px;
+  border-color: #f9f9f9;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  border-style: solid;
+}
+
+.mybtn {
+  width: 120px;
+  margin-left: 5px;
+  border-radius: 8px;
+  background-color: rgb(55, 55, 250);
+  border-color: rgba(0, 0, 255, 0.3);
+  color: #fff;
+  padding: 0.8em;
+}
+
+/* Message stuff  */
+
+.message {
+  background-color: #ebe6e6;
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+  box-shadow: 6px 6px 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: small;
+  color: #333;
+  width: fit-content;
+  max-width: 80%;
+}
+
+.sender {
+  font-size: small;
+}
+
+.messageContent {
+  text-indent: 10px;
 }
