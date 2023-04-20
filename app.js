@@ -7,10 +7,20 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+};
+
 const app = express();
 const PORT = 5000;
 const http = require("http").createServer(app);
-const io = require("socket.io")(http);
+const io = require("socket.io")(http, {
+  cors: corsOptions,
+});
+
+app.use(cors(corsOptions));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -42,14 +52,14 @@ app.use(function (err, req, res, next) {
 });
 
 // Server Stuff
+http.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
+
 io.on("connection", (socket) => {
   console.log("Connection with socket established");
 
   // Listeners can go here!
-});
-
-http.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
 });
 
 module.exports = app;
