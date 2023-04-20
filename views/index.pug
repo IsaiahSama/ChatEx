@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  center 
+    h1 Welcome to ChatEx
+    p Just a place to join a chatroom and talk with whoever. No conversations are stored, so chat away.
+
+  .messageWindow
+    #messages
+      .messageDiv
+        .senderName Name of Sender
+        .messageContent Insert some cool content here 
+
+  .inputSection 
+    input.form-control(type="text", name="message" id="message")
+    button.btn(type="submit") Send
