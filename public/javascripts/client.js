@@ -31,12 +31,24 @@ socket.on("message", (senderID, message) => {
   messagesDiv.appendChild(messageDiv);
 });
 
-document.getElementById("sendMessage").onclick = () => {
+const emitMessage = () => {
   const messageField = document.getElementById("cMessage");
   const data = messageField.value;
 
   // clearing the message field
   messageField.value = "";
 
+  if (data.length < 1) {
+    alert("You can not send an empty message!");
+    return;
+  }
   socket.emit("message", data);
 };
+
+document.getElementById("sendMessage").onclick = emitMessage;
+document.addEventListener("keypress", (e) => {
+  if (e.key == "Enter") {
+    // Nasty shortcut cause I can't be bothered with forms and the page refreshing.
+    emitMessage();
+  }
+});
