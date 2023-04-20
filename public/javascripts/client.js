@@ -8,17 +8,22 @@ socket.on("connect", (...args) => {
   console.log("Connected to server");
 });
 
-socket.on("message", (message) => {
+socket.on("message", (senderID, message) => {
   const messageDiv = document.createElement("div");
   const nameDiv = document.createElement("div");
   const contentDiv = document.createElement("div");
 
-  messageDiv.className = "message";
+  messageDiv.className = "message ";
   nameDiv.className = "sender";
   contentDiv.className = "messageContent";
 
-  nameDiv.innerText = "Client";
+  let name = senderID == socket.id ? "You" : "Otherworlder";
+
+  nameDiv.innerText = name;
   contentDiv.innerText = message;
+
+  // Need to add the correct styling for the message container.
+  messageDiv.className += senderID == socket.id ? "user" : "client";
 
   messageDiv.appendChild(nameDiv);
   messageDiv.appendChild(contentDiv);

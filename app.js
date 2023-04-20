@@ -58,8 +58,8 @@ http.listen(PORT, () => {
 
 let clients = []; // This will store all connected clients
 
-const broadcastMessage = (message) => {
-  clients.map((client) => client.emit("message", message));
+const broadcastMessage = (clientID, message) => {
+  clients.map((client) => client.emit("message", clientID, message));
 };
 
 io.on("connection", (socket) => {
@@ -69,7 +69,7 @@ io.on("connection", (socket) => {
 
   // Listeners can go here!
   socket.on("message", (message) => {
-    broadcastMessage(message);
+    broadcastMessage(socket.id, message);
   });
 
   socket.on("disconnect", () => {
