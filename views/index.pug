@@ -10,9 +10,12 @@ block content
 
   .content
     .messages#messageDiv 
-      .message
-        .sender Name of Sender
-        .messageContent Insert some cool content here 
+      .message.client
+        .sender Some Client
+        .messageContent Message sent from other client
+      .message.user
+        .sender Current User
+        .messageContent Message sent by the current user.
 
     .entry 
       input.form-control(type="text", name="cMessage" id="cMessage")

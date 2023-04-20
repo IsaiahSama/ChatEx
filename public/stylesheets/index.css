@@ -66,3 +66,12 @@
 .messageContent {
   text-indent: 10px;
 }
+
+.client {
+  background-color: rgb(223, 249, 223);
+}
+
+.user {
+  background-color: rgb(220, 220, 252);
+  margin-left: auto;
+}
