@@ -6,6 +6,10 @@ socket.on("connect", (...args) => {
   console.log("Connected to server");
 });
 
+socket.on("message", (message) => {
+  console.log("Received a message: ", message);
+});
+
 document.getElementById("sendMessage").onclick = () => {
   const messageField = document.getElementById("cMessage");
   const data = messageField.value;

@@ -56,12 +56,25 @@ http.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
 
+let clients = []; // This will store all connected clients
+
+const broadcastMessage = (message) => {
+  clients.map((client) => client.emit("message", message));
+};
+
 io.on("connection", (socket) => {
   console.log("Connection with socket established");
 
+  clients.push(socket);
+
   // Listeners can go here!
   socket.on("message", (message) => {
-    console.log("Received message: ", message);
+    broadcastMessage(message);
+  });
+
+  socket.on("disconnect", () => {
+    clients = clients.filter((value) => value != socket);
+    console.log("Client has disconnected!");
   });
 });
 
