@@ -62,11 +62,15 @@ const broadcastMessage = (clientID, message) => {
   clients.map((client) => client.emit("message", clientID, message));
 };
 
+const updateOnlineCount = () => {
+  clients.map((client) => client.emit("update-count", clients.length));
+};
+
 io.on("connection", (socket) => {
   console.log("Connection with socket established");
 
   clients.push(socket);
-
+  updateOnlineCount();
   // Listeners can go here!
   socket.on("message", (message) => {
     broadcastMessage(socket.id, message);

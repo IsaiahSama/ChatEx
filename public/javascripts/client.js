@@ -9,7 +9,7 @@ socket.on("connect", (...args) => {
   console.log("Connected to server");
 });
 
-socket.on("user-update", (online) => {
+socket.on("update-count", (online) => {
   onlineCount.innerText = online;
 });
 
