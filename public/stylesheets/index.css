@@ -1,0 +1,5 @@
+.messageContainer {
+  width: 70%;
+  max-width: 70%;
+  border: 1px solid blue;
+}
